@@ -86,8 +86,14 @@ body {
  */
 main {
 	display: block;
+	margin: auto;
+	padding-top: 190px;
 }
 
+.container {
+	max-width: 1200px;
+	margin: auto;
+}
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
@@ -473,9 +479,6 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
-	margin: auto;
-	max-width: 1200px;
-	text-align: center;
 }
 
 hr {
@@ -648,7 +651,7 @@ textarea {
 }
 
 footer {
-	margin: 6rem 0 4rem 0;
+	margin: 6rem auto 4rem auto;
 }
 /*--------------------------------------------------------------
 # Components
@@ -656,9 +659,37 @@ footer {
 
 /* Navigation
 --------------------------------------------- */
+.site-header {
+	background-color: grey;
+	text-align: center;
+	position: fixed;
+	top: 2;
+	width: 100%;
+	z-index: 1;
+}
+
+.banner {
+	height: 75vh;
+	background: url('assets/img/banner-img.webp') center / cover no-repeat  ;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	color: #eee;
+	text-transform: uppercase;
+}
+
+.banner h1 {
+	font-size: 3rem;
+	text-shadow: 3px 2px #BF032E;
+}
+
 .main-navigation {
 	display: block;
-	width: 100%;
+}
+
+.main-navigation img {
+	width: 2rem;
 }
 
 .main-navigation ul {
@@ -704,6 +735,7 @@ footer {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	text-transform: uppercase;
 	color: black;
 }
 
@@ -711,6 +743,9 @@ footer {
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -721,7 +756,10 @@ footer {
 
 	.main-navigation ul {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-between;
+		padding-bottom: 2rem;
+		max-width: 1200px;
+		margin: auto;
 	}
 }
 
@@ -776,16 +814,6 @@ footer {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
-}
-
-/* Comments
---------------------------------------------- */
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
 }
 
 /* Widgets

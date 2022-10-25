@@ -26,8 +26,16 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'sbfields' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<nav id="site-navigation" class="main-navigation sticky">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'sbfields' ); ?></button>
+		<div class="site-branding">
+			<a class="sm-logo" rel="home" href="<?php echo esc_url(home_url( '/' ) ); ?>" itemprop="url">
+			<img src="<?php bloginfo('template_directory'); ?>/assets/img/BannerNEW1.webp" alt="<?php the_title (); ?>">
+			<span class="screen-reader-text"><?php bloginfo( 'name' ); ?></span>
+			</a>
+		</div><!-- .site-branding -->
+		<nav id="site-navigation" class="main-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( '', 'sbfields' ); ?><img src="<?php bloginfo('template_directory'); ?>/assets/img/menu.png" alt="">
+			</button>
+			
 			<?php
 			wp_nav_menu(
 				array(
@@ -36,12 +44,9 @@
 				)
 			);
 			?>
+			<!-- <div>
+				<a target="_blank" href="<?php echo esc_url(__('https://www.instagram.com/strawberryfieldsyeg/')); ?>">Insta</a>
+				<a target_blank href="<?php echo esc_url(__('https://twitter.com/StrawberryUPick')); ?>">Twit</a>	
+			</div> -->
 		</nav><!-- #site-navigation -->
-		<div class="site-branding">
-			<a class="sm-logo" rel="home" href="<?php echo esc_url(home_url( '/' ) ); ?>" itemprop="url">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/img/sbfields.png" alt="<?php the_title (); ?>">
-			<span class="screen-reader-text"><?php bloginfo( 'name' ); ?></span>
-			</a>
-		</div><!-- .site-branding -->
-
 	</header><!-- #masthead -->

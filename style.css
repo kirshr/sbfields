@@ -1,0 +1,27 @@
+.calendar {
+  max-height: 70vh;
+  max-width: 80vw;
+  margin: 0 auto;
+  overflow: scroll;
+}
+.headers {
+  position: sticky;
+  top: 0;
+  background-color: rgb(37, 37, 37);
+  color: rgb(255, 255, 255);
+}
+.headers,
+.data {
+  display: flex;
+}
+.headers div,
+.data div {
+  border: 1px solid black;
+  padding: 0.5rem;
+  width: 300px;
+  text-align: center;
+}
+.data div:hover {
+  background-color: green;
+  cursor: pointer;
+}

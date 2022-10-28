@@ -25,3 +25,7 @@
   background-color: green;
   cursor: pointer;
 }
+
+.selected {
+  background-color: green;
+}

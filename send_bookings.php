@@ -16,7 +16,6 @@
 		}
     }
     echo $message;
-
 ?>
 <!-- `
     1. Put the data in a php array

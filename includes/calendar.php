@@ -1,24 +1,9 @@
 <?php 
 // Include the database config file 
-include_once 'dbConfig.php'; 
+include_once "dbConfig.php"; 
 //Get available dates
 $get_availability ="SELECT available from bookings";
 $result = mysqli_query($db,$get_availability);
-/* 
- * Load function based on the Ajax request 
- */ 
-if(isset($_POST['func']) && !empty($_POST['func'])){ 
-    switch($_POST['func']){ 
-        case 'getCalender': 
-            getCalender($_POST['year'],$_POST['month']); 
-            break; 
-        case 'getEvents': 
-            getEvents($_POST['date']); 
-            break; 
-        default: 
-            break; 
-    } 
-} 
  
 /* 
  * Generate event calendar in HTML format 
@@ -76,12 +61,12 @@ function getCalender($year = '', $month = ''){
             ?>
         </section>
         <form action="" method="post" id="display-bookings">
-            <input type="submit" name="submit">
+            <input type="submit" name="submit" id="submit-availability">
         </form>
     </main> 
     <!-- ADD THE SELECTED CLASS FOR THE BOOKINGS -->
     <?php
-        include "./dbConfig.php";
+        include "dbConfig.php";
         $get_all = "SELECT available FROM bookings";
         $get_all_result = mysqli_query($db, $get_all);
         $data = array();
@@ -103,15 +88,17 @@ function getCalender($year = '', $month = ''){
         <?php
         $count = count($data);
     ?> 
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script>
         let count = <?php echo $count ?>;
         let data = <?php echo json_encode($data) ?>;
         //iterate through each element in the data array
         for (let i = 0; i <= count; i++) {
         document.getElementsByClassName(data[i])[0].classList.add('selected');
+        document.getElementsByClassName(data[i])[0].appendChild(document.createElement('a')).innerHTML = "Book ME NOW";
         }
     </script>
-
+    <!-- Add a dynamic class to each div in the calendar -->
     <script>
         let bookings = [];
     jQuery(".calendar").on("click", ".data div", function (e) {
@@ -124,21 +111,22 @@ function getCalender($year = '', $month = ''){
     });
 
 
-    //SQL AJAX
-    jQuery("#display-bookings").on("submit", function(e) {
-				//get all from 
-				alert(bookings);
-				$.ajax({
+    jQuery(document).on("click", "#submit-availability", function (e){
+        e.preventDefault();
+        alert(bookings);
+        jQuery.ajax({
 					type:"POST",
-					url: "send_bookings.php",
-					data: {data: bookings},
+					url: ajaxurl,
+					data: {
+                        'action': 'availability',
+                        'data': bookings
+                    },
 					success: function(response) {
-						$(".message").html(response);
+						jQuery(".message").html(response);
+                        console.log('Success');
 					}
 				})
-				e.preventDefault();
-                
-			})
+    })
     </script>
 <?php 
 } 

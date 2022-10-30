@@ -12,7 +12,7 @@
 			$message = "Error: " . $add_date->error;
 		}
 		else {
-			$message = "<h2>ADDED artist</h2>";
+			$message = "<h2>ADDED Dates</h2>";
 		}
     }
     echo $message;

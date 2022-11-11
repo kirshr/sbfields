@@ -139,7 +139,14 @@ add_action( 'widgets_init', 'sbfields_widgets_init' );
  */
 function sbfields_scripts() {
 	wp_enqueue_style( 'sbfields-style', get_stylesheet_uri(), array(), _S_VERSION );
+	
 	wp_style_add_data( 'sbfields-style', 'rtl', 'replace' );
+
+	wp_enqueue_style('form', get_template_directory_uri() . '/css/form.css', false, _S_VERSION, 'all');
+
+	wp_enqueue_script('sbfields-main', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.1', true);
+
+	wp_enqueue_script('sbfields-stepper', get_template_directory_uri() . '/js/stepper.js', array('jquery'), '1.1', true);
 
 	wp_enqueue_script( 'sbfields-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

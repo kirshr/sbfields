@@ -86,8 +86,14 @@ body {
  */
 main {
 	display: block;
+	margin: auto;
+	padding-top: 190px;
 }
 
+.container {
+	max-width: 1200px;
+	margin: auto;
+}
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
@@ -473,9 +479,6 @@ big {
 --------------------------------------------- */
 body {
 	background: #fff;
-	margin: auto;
-	max-width: 1200px;
-	text-align: center;
 }
 
 hr {
@@ -536,7 +539,7 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #4169e1;
+	color: black;
 }
 
 a:visited {
@@ -648,7 +651,7 @@ textarea {
 }
 
 footer {
-	margin: 6rem 0 4rem 0;
+	margin: 6rem auto 4rem auto;
 }
 /*--------------------------------------------------------------
 # Components
@@ -656,9 +659,37 @@ footer {
 
 /* Navigation
 --------------------------------------------- */
+.site-header {
+	background-color: transparent;
+	text-align: center;
+	position: fixed;
+	top: 2;
+	width: 100%;
+	z-index: 1;
+}
+
+.banner {
+	height: 75vh;
+	background: url('assets/img/banner-img.webp') center / cover no-repeat  ;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	color: #eee;
+	text-transform: uppercase;
+}
+
+.banner h1 {
+	font-size: 3rem;
+	text-shadow: 3px 2px #BF032E;
+}
+
 .main-navigation {
 	display: block;
-	width: 100%;
+}
+
+.main-navigation img {
+	width: 2rem;
 }
 
 .main-navigation ul {
@@ -704,6 +735,7 @@ footer {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	text-transform: uppercase;
 	color: black;
 }
 
@@ -711,6 +743,9 @@ footer {
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -721,7 +756,10 @@ footer {
 
 	.main-navigation ul {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-between;
+		padding-bottom: 2rem;
+		max-width: 1200px;
+		margin: auto;
 	}
 }
 
@@ -776,16 +814,6 @@ footer {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
-}
-
-/* Comments
---------------------------------------------- */
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
 }
 
 /* Widgets
@@ -978,3 +1006,78 @@ footer {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+.calendar {
+	max-height: 70vh;
+	max-width: 80vw;
+	margin: 0 auto;
+	overflow: scroll;
+  }
+  .headers {
+	position: sticky;
+	top: 0;
+	background-color: rgb(37, 37, 37);
+	color: rgb(255, 255, 255);
+  }
+  .headers,
+  .data {
+	display: flex;
+  }
+  .headers div,
+  .data div {
+	border: 1px solid black;
+	padding: 0.5rem;
+	width: 300px;
+	text-align: center;
+  }
+  .data div:hover {
+	background-color: green;
+	cursor: pointer;
+  }
+  
+  .selected {
+	background-color: green;
+  }
+  .selected a {
+	color: black;
+  }
+
+  /* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  

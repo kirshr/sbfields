@@ -198,10 +198,6 @@ input[type="text"] {
 <?php 
 include ('inc/dbConfig.php');
 
-if (isset($_POST['submit'])) {
-  echo '<script>alert("Welcome to Geeks for Geeks")</script>';
-}
-
 ?>
 
 
@@ -257,7 +253,7 @@ if (isset($_POST['submit'])) {
           <input type="text" name="phone" id="phone" placeholder="Phone Number"/>
 
           <button class="form__btn" id="btn-2-prev">Previous</button>
-          <button class="form__btn" id="btn-2-next">Next</button>
+          <button class="form__btn" name="form-submit" id="btn-2-next">Next</button>
       </form>
       <form class="form" action="<?php echo $_SERVER['REQUEST_URI']?>" method="post">
           <div class="form--header-container">
@@ -276,10 +272,10 @@ if (isset($_POST['submit'])) {
               <b>Picking Date/Time:</b> <span id="form-date-4"></span>
           </p>
           <p>
-              <b>Baskets (lbs):</b> 2 baskets - 10 lbs
+              <b>Baskets (lbs):</b> <span id="basket"></span> baskets - <span id="pound"></span> lbs
           </p>
           <p>
-              <b>Approx Total Cost:</b> $50.00
+              <b>Approx Total Cost:</b> $<span id="price"></span>
           </p>
           <button class="form__btn" id="btn-3-prev">Previous</button>
           <button class="form__btn" id="btn-3-next">Next</button>
@@ -339,6 +335,16 @@ if (isset($_POST['submit'])) {
 	if (event.target == modal) {
 		modal.style.display = "none";
 	}
+
+  // Put in the correct informations
+  var basket = document.getElementById("numberPlace").innerText;
+  document.getElementById("basket").innerHTML = basket; 
+  var weight = basket * 5;
+  document.getElementById("pound").innerHTML = weight;
+  var price = basket * 25;
+  document.getElementById("price").innerHTML = price;
+  
+
 	}
   jQuery(".calendar").on("click", ".data div", function (e) {
       let booking_time = this.dataset.time;
@@ -356,17 +362,19 @@ if (isset($_POST['submit'])) {
       
   });
 
+  
+
   //AJAX to ADD AVAILABILITY TO DB
   
   jQuery(document).on("click", "#btn-4", function (e){
-        e.preventDefault();
+
         var firstName = document.getElementById('first_name').value;  
         var lastName = document.getElementById('last_name').value;  
         var email = document.getElementById('email').value;  
         var phone = document.getElementById('phone').value; 
         var booking_date = document.getElementById("confirm-date").innerText;
         var basket = document.getElementById("numberPlace").innerText;
-        if (firstName.length != 0 || lastName.length !=0 || email.length !=0|| phone.length !=0)  
+        if (firstName.length != 0 || lastName.length !=0 || email.length !=0|| phone.length !=0 || basket != 0)  
         {  
           jQuery.ajax({
             type:"POST",

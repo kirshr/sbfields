@@ -5,19 +5,59 @@ const formBtnPrev3 = document.querySelector("#btn-3-prev");
 const formBtnNext3 = document.querySelector("#btn-3-next");
 const formBtn4 = document.querySelector("#btn-4");
 
+var basket = document.getElementById("numberPlace");
+
+var firstName = document.getElementById("first_name");
+var lastName = document.getElementById("last_name");
+var email = document.getElementById("email");
+var phone = document.getElementById("phone");
+var phoneNo = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+var validEmail =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 // Button listener of form 1
 formBtn1.addEventListener("click", function (e) {
-  gotoNextForm(formBtn1, formBtnNext2, 1, 2);
-  e.preventDefault();
+  if (basket.innerText == 0) {
+    alert("Please select a number of basket");
+    e.preventDefault();
+  } else {
+    gotoNextForm(formBtn1, formBtnNext2, 1, 2);
+    e.preventDefault();
+  }
 });
+
+// firstName1.addEventListener("change", function (e) {
+//   e.preventDefault();
+//   console.log(firstName1.value);
+// });
 
 // Next button listener of form 2
 formBtnNext2.addEventListener("click", function (e) {
-  gotoNextForm(formBtnNext2, formBtnNext3, 2, 3);
-  e.preventDefault();
-  console.log(e);
+  if (
+    firstName.value == "" ||
+    lastName.value == "" ||
+    email.value == "" ||
+    phone.value == ""
+  ) {
+    alert("Please enter all the necessary information");
+    e.preventDefault();
+    return false;
+  } else {
+    if (phone.value.match(phoneNo)) {
+      if (email.value.match(validEmail)) {
+        gotoNextForm(formBtnNext2, formBtnNext3, 2, 3);
+        e.preventDefault();
+        console.log(e);
+      } else {
+        alert("Please put a valid email");
+        e.preventDefault();
+      }
+    } else {
+      alert("Please put a valid phone number");
+      e.preventDefault();
+    }
+  }
 });
-
 // Previous button listener of form 2
 formBtnPrev2.addEventListener("click", function (e) {
   gotoNextForm(formBtnNext2, formBtn1, 2, 1);
@@ -45,7 +85,6 @@ formBtn4.addEventListener("click", function (e) {
       <h1 class="form--message-text">You've successfully booked</h1>
       <button>Close</button>
       `;
-  e.preventDefault();
 });
 
 const gotoNextForm = (prev, next, stepPrev, stepNext) => {

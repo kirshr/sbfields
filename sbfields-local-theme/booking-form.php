@@ -265,7 +265,7 @@ include ('inc/dbConfig.php');
               </p>
           </div>
           <p>
-              Hi , please review your booking information. If everything is correct, please
+              Hi <span id="name"></span>, please review your booking information. If everything is correct, please
               accept our terms and conditions below to confirm your booking!
           </p>
           <p>
@@ -343,6 +343,10 @@ include ('inc/dbConfig.php');
   document.getElementById("pound").innerHTML = weight;
   var price = basket * 25;
   document.getElementById("price").innerHTML = price;
+
+  var firstName = document.getElementById('first_name').value;  
+  var lastName = document.getElementById('last_name').value;  
+  document.getElementById("name").innerHTML = firstName;
   
 
 	}

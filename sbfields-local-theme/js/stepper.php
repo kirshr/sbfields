@@ -1,4 +1,5 @@
-window.onload = function () {
+<script>
+    window.onload = function () {
   var minusBtn = document.getElementById("minus"),
     plusBtn = document.getElementById("plus"),
     numberPlace = document.getElementById("numberPlace"),
@@ -41,3 +42,5 @@ window.onload = function () {
     console.log("You picked " + number + " basket");
   };
 };
+
+</script>

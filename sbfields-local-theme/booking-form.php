@@ -392,7 +392,7 @@ include ('inc/dbConfig.php');
               basket: basket
             },
             success: function(data) {
-              alert(data);
+              // alert(data);
             }
           })
         }  

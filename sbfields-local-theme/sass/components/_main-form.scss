@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    background: #f5f6f7;
+
+}
+
+p {
+    padding-bottom: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4rem;
+    margin: 2rem 0 0 18rem;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+img {
+    width: 2rem;
+}
+
+#mainDiv {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+#mainDiv div:first-of-type {
+    display: flex;
+    align-items: center;
+}
+
+.icons {
+    display: flex;
+    gap: 4rem;
+}
+
+.icons div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    width: 60rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    display: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.form--header-container {
+    background: linear-gradient(to right, rgb(51, 51, 51), #919191);
+    color: #fff;
+    height: 6rem;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.form--header-title {
+    font-size: 1.4rem;
+}
+
+.form--header-text {
+    padding: 0.5rem 0;
+}
+
+input[type="text"] {
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    width: 20rem;
+    display: block;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #bdbdbb;
+
+}
+
+.form__btn {
+    background: #333;
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 0.5rem 0.7rem;
+    width: 7rem;
+    margin: 1rem auto;
+    border-radius: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form--message-text {
+    width: 25rem;
+    background: #fff;
+    color: #444;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    animation: fadeIn 0.8s;
+    border-radius: 1rem;
+}
+
+.form-active {
+    z-index: 1000;
+    display: block;
+}
+
+.form-active-animate {
+    animation: moveRight 1s;
+}
+
+.form-inactive {
+    display: block;
+    animation: moveLeft 1s;
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-27rem) scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0rem) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0rem) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(27rem) scale(0.9);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

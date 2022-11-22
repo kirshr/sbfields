@@ -1,0 +1,30 @@
+.progress-bar {
+    width: 60rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.progress-bar h3 {
+    text-align: left;
+}
+
+.step--1,
+.step--2,
+.step--3,
+.step--4 {
+    padding: 0.5rem 1rem;
+}
+
+.steps {
+    padding: 1rem 0;
+    margin-left: 1rem;
+    border-left: 1px solid #666;
+}
+
+.step-active {
+    background: url('../../img/icons8-checkmark-64.png') no-repeat right;
+    background-size: 1.5rem;
+    font-weight: bold;
+}
+

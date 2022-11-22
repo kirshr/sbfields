@@ -212,8 +212,8 @@ echo "$basket";
 
 ?>
 <script>
-  let test = <?php echo $basket; ?>;
-  console.log(test);
+  let availableBasket = <?php echo $basket; ?>;
+  console.log(availableBasket);
 
   window.onload = function () {
   
@@ -223,7 +223,7 @@ echo "$basket";
     submitBtn = document.getElementById("btn-1"),
     number = 0, /// number value
     min = 0, /// min number
-    max = test; /// max number
+    max = availableBasket; /// max number
   minusBtn.onclick = function (e) {
     if (number > min) {
       number = number - 1; /// Minus 1 of the number

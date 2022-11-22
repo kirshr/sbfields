@@ -138,17 +138,15 @@ add_action( 'widgets_init', 'sbfields_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sbfields_scripts() {
-	wp_enqueue_style( 'sbfields-style', get_stylesheet_uri(), array(), _S_VERSION );
-	
-	wp_style_add_data( 'sbfields-style', 'rtl', 'replace' );
+//Stylesheets
+	wp_enqueue_style('style', get_template_directory_uri() . '/sass/style.css', false, _S_VERSION, 'all');
 
-	wp_enqueue_style('form', get_template_directory_uri() . '/css/form.css', false, _S_VERSION, 'all');
+// Scripts
+	wp_enqueue_script('main', get_template_directory_uri() . '/js/main.js', array('jquery'), _S_VERSION, true);
 
-	wp_enqueue_script('sbfields-main', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.1', true);
+	wp_enqueue_script('stepper', get_template_directory_uri() . '/js/stepper.js', array('jquery'), _S_VERSION, true);
 
-	wp_enqueue_script('sbfields-stepper', get_template_directory_uri() . '/js/stepper.js', array('jquery'), '1.1', true);
-
-	wp_enqueue_script( 'sbfields-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

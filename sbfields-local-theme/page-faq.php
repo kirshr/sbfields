@@ -11,7 +11,8 @@
 
 	<main id="primary" class="site-main">
 		<div class="container">
-			<div>
+			<div class="inner-container">
+				<h2>Fequently Asked Questions</h2>
 				<ul class="faq-list">
 					<li>Q1: I am trying to book an appointment but it says there are none available. Is your booking system not working?</li>
 					<li>A: When no appointments are available it just means that all our appointments for the current week are full. If it is before July it is likley we have not opened appointments for the coming season yet. </li>

@@ -1,0 +1,11 @@
+@import'../abstracts/mixins';
+@import'../abstracts/variables';
+
+.flex-container {
+    @include flex(row, space-between, center, Null);
+    gap: 2rem;
+
+    &_div {
+        width: 60%;
+    }
+}

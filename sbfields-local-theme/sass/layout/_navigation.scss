@@ -1,0 +1,129 @@
+@import'../abstracts/mixins';
+@import'../abstracts/variables';
+
+/* Navigation
+--------------------------------------------- */
+.site-header {
+	display: flex;
+	background-color: white;
+	justify-content: center;
+	z-index: 1;
+	position: fixed;
+	top: 2;
+	width: 100%;
+}
+
+.site-branding img {
+	width: 12rem;
+}
+
+@include desktop {
+	.site-header {
+		display: initial;
+		text-align: center;
+	}
+}
+
+.site-branding {
+	@include flex(row, center, Null, Null);
+}
+
+.main-navigation {
+	display: block;
+}
+
+.menu-toggle img {
+	width: 2rem;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover>ul,
+.main-navigation ul ul li.focus>ul {
+	display: block;
+	left: auto;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover>ul,
+.main-navigation ul li.focus>ul {
+	left: auto;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: black;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+@include desktop {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		@include flex(row, space-between, Null, Null);
+		padding-bottom: 2rem;
+		max-width: 1200px;
+		margin: auto;
+	}
+}
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+}
+
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+	display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
+}

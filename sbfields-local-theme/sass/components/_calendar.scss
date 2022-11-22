@@ -1,0 +1,70 @@
+.calendar-contain {
+	padding-top: 0;
+}
+
+.message {
+	display: none;
+}
+
+.calendar {
+	max-height: 70vh;
+	width: 1200px;
+	margin: 0 auto;
+	overflow-y: scroll;
+}
+
+.headers {
+	position: sticky;
+	top: 0;
+	background-color: rgb(37, 37, 37);
+	color: rgb(255, 255, 255);
+}
+
+.headers,
+.data {
+	display: flex;
+}
+
+.headers div,
+.data div {
+	border: 1px solid black;
+	padding: 0.5rem;
+	width: 300px;
+	text-align: center;
+}
+
+.selected {
+	background-color: green;
+	cursor: pointer;
+}
+
+.selected a {
+	color: black;
+}
+
+@media all and (max-width: 500px) {
+	.Rtable--collapse {
+		display: block;
+
+		>.Rtable-cell {
+			width: 100% !important;
+		}
+
+		>.Rtable-cell--foot {
+			margin-bottom: 1em;
+		}
+	}
+}
+
+// Non-Flex modernizer fallback
+.no-flexbox .Rtable {
+	display: block;
+
+	>.Rtable-cell {
+		width: 100%;
+	}
+
+	>.Rtable-cell--foot {
+		margin-bottom: 1em;
+	}
+}

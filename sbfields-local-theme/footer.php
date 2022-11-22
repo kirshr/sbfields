@@ -26,7 +26,7 @@
 				?>
 			<span class="sep"> | </span>
 				<a target="_blank" href="<?php echo esc_url(__('https://www.instagram.com/strawberryfieldsyeg/')); ?>">Instagram</a>
-				<a target_blank href="<?php echo esc_url(__('https://twitter.com/StrawberryUPick')); ?>">Twitter</a>
+				<a target="_blank" href="<?php echo esc_url(__('https://twitter.com/StrawberryUPick')); ?>">Twitter</a>
 				
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

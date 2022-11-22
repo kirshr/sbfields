@@ -1,0 +1,109 @@
+@import'../abstracts/mixins';
+
+.breadcrumb {
+    width: 20rem;
+    padding: 1rem;
+}
+
+.progress-bar h3 {
+    text-align: left;
+}
+
+.steps {
+    border-left: 1px solid black;
+}
+
+.step--1,
+.step--2,
+.step--3,
+.step--4 {
+    padding: 0.5rem 1rem;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.step--active {
+    background: url('../img/icons8-checkmark-64.png') no-repeat right;
+    background-size: 1.5rem;
+    font-weight: bold;
+}
+
+@include mobile {
+    .form-container {
+        flex-direction: column;
+    }
+
+    h3 {
+        display: none;
+    }
+
+    .steps {
+        border-left: none;
+    }
+
+    .breadcrumb {
+        /*centering*/
+        display: inline-block;
+        box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        border-radius: 5px;
+        border: 2px solid $accent-color;
+        width: initial;
+        padding: 0;
+    }
+
+    .breadcrumb p {
+        outline: none;
+        display: block;
+        float: left;
+        font-size: 12px;
+        line-height: 36px;
+        color: $text-color;
+        padding: 0 8px 0 25px;
+        position: relative;
+    }
+
+    .breadcrumb p:last-child {
+        border-radius: 0 5px 5px 0;
+        /*this was to prevent glitches on hover*/
+        padding-right: 20px;
+    }
+
+    /*adding the arrows for the breadcrumbs using rotated pseudo elements*/
+    .breadcrumb p:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -18px;
+        /*half of square's length*/
+        /*same dimension as the line-height of .breadcrumb li */
+        width: 36px;
+        height: 36px;
+        /*as you see the rotated square takes li larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's: length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem) if diagonal required = 1; length = 1/1.414 = 0.707*/
+        transform: scale(0.707) rotate(45deg);
+        /*we need to prevent the arrows from getting buried under the next link*/
+        z-index: 1;
+		/*5px - for rounded arrows and 
+		50px - to prevent hover glitches on the border created using shadows*/
+        border-right: 3px solid $accent-color;
+        border-top: 3px solid $accent-color;
+        border-radius: 0 5px 0 5px;
+    }
+
+    /*we dont need an arrow after the last link*/
+    .breadcrumb p:last-child:after {
+        content: none;
+    }
+
+    p.step--active {
+        background: $accent-color;
+        color: $text-color2;
+        font-weight: bold;
+    }
+
+    p.step--active:after {
+        background-color: $accent-color;
+    }
+}

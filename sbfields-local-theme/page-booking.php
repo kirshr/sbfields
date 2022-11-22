@@ -14,7 +14,32 @@
 
 	<main id="primary" class="site-main">
 		<div class="container">
-			<?php echo do_shortcode('[greeting]') ?>
+			<div class="inner-container booking">
+				<div class="booking-info">
+					<h2>Booking Information</h2>
+						<ul>
+							<li>Appointments Only - No Drop In's</li>
+							<li>Only one week of appointments is open at a time</li>
+							<li>New appointments will open if/when more strawberries are avaliable</li>
+							<li>If there are no appointments avaliable we have a waitlist avaliable to join via the next page. We work throughthis list on a first come first serve basis</li>
+							<div class="basket">
+								<img src="<?php bloginfo('template_directory'); ?>/img/picnic-basket.png" alt="<?php the_title (); ?>">
+								<li> are provided free of charge, you are welcome to bring your own</li>
+							</div>
+							<div class="basket">
+								<img src="<?php bloginfo('template_directory'); ?>/img/picnic-basket.png" alt="<?php the_title (); ?>">
+								<li> = approx. 5lbs of berries</li>
+							</div>
+							<li>Please estimate how many baskets you thin you will pick for scheduling</li>
+							<li>Price is $5 per lb</li>
+							<li>We accept cash or e-transfer only</li>
+							<li>Bakstes will be weighed at the  end of your visit</li>
+						</ul>
+				</div>
+				<div>
+					<?php echo do_shortcode('[greeting]') ?>
+				</div>
+			</div>
 		</div>
     <?php  include plugin_dir_path(__FILE__). 'booking-form.php'; ?>
 	</main><!-- #main -->

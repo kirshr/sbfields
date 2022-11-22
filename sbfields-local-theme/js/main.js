@@ -59,8 +59,8 @@ formBtn1.addEventListener("click", function(e) {
     nextForm.classList.add("form-active-animate")
     prevForm.classList.add("form-inactive")
     // Change the active step element
-    prevStep.classList.remove("step-active")
-    nextStep.classList.add("step-active")
+    // prevStep.classList.remove("step--active")
+    nextStep.classList.add("step--active")
     // Remove active/inactive classes to both previous an next form
     setTimeout(() => {
       prevForm.classList.remove("form-active")
@@ -68,3 +68,4 @@ formBtn1.addEventListener("click", function(e) {
       nextForm.classList.remove("form-active-animate")
     }, 1000)
   }
+

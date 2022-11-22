@@ -1,0 +1,20 @@
+$primary-color: white;
+$secondary-color: black;
+$accent-color: #BD0830;
+$text-color: black;
+$text-color2: white;
+$font-weights: (
+    "regular": 400,
+    "meduim": 500,
+    "bold" : 700
+);
+
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
+$mobile: 500px;
+
+$tablet: 800px;
+
+$desktop: 1250px;

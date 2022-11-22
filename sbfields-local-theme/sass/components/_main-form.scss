@@ -1,0 +1,241 @@
+@import'../abstracts/variables';
+@import'../abstracts/mixins';
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    top: 250px;
+    width: 100vw;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+}
+
+.form-container {
+    background: $primary-color;
+    @include flex(column, flex-start, center, center);
+    gap: 2rem;
+    border: 1px solid black;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 0.75rem;
+}
+
+#mainDiv {
+    @include flex(column, flex-end, center, Null);
+    gap: 2rem;
+
+    h2 {
+        text-align: center;
+    }
+
+    div {
+        @include flex(column, center, center, Null);
+        gap: 1rem;
+    }
+
+    .stepper {
+        @include flex(row, center, center, Null);
+        padding-bottom: 2rem;
+    
+        p {
+            padding-bottom: 0;
+        }
+    }
+    
+    .totals {
+        align-self: flex-end;
+    }
+}
+
+.icons {
+    display: flex;
+    gap: 4rem;
+
+    div {
+        @include flex(column, center, center, Null)
+    }
+}
+
+.form {
+    @include flex(column, Null, Null, Null);
+    display: none;
+
+    img {
+        width: 2rem;
+    }
+    
+}
+
+.form--header-container {
+    height: 6rem;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.form--header-title {
+    font-size: 1.4rem;
+}
+
+.form--header-text {
+    padding: 0.5rem 0;
+}
+
+input[type="text"] {
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    width: 20rem;
+    display: block;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #bdbdbb;
+
+}
+
+.form__btn {
+    background: #333;
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 0.5rem 0.7rem;
+    width: 7rem;
+    margin: 1rem auto;
+    border-radius: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.form--message-text {
+    width: 25rem;
+    background: #fff;
+    color: #444;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(51, 51, 51, 0.2);
+    animation: fadeIn 0.8s;
+    border-radius: 1rem;
+}
+
+.form-active {
+    z-index: 1000;
+    display: block;
+}
+
+.form-active-animate {
+    animation: moveRight 1s;
+}
+
+.form-inactive {
+    display: block;
+    animation: moveLeft 1s;
+}
+
+.instructions {
+    max-width: 320px;
+    order: -1;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid black;
+}
+
+.instructions p {
+    padding: .5rem 0;
+}
+
+.review {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid black;
+}
+
+.terms {
+    padding-top: 2rem;
+}
+
+#mainDiv .basket, .booking .basket {
+    display: flex;
+    flex-direction: row;
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(-27rem) scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0rem) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0rem) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(27rem) scale(0.9);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@include desktop {
+    /* The Modal (background) */
+    .modal {
+        top: 200px;
+        left: 15%;
+        width: 70vw;
+        /* Full width */
+        height: 100%;
+    }
+
+    .form-container {
+        @include flex(row, flex-start, center, center);
+        padding: 2rem;
+    }
+    
+    #mainDiv {
+        @include flex(row, flex-end, center, Null);
+        padding-left: 2rem;
+        border-left: 1px solid black;
+
+        .title {
+            width: 100%;
+        }
+    }
+
+    .instructions {
+        padding: 2rem;
+        border-left: 1px solid black;
+        order: 2;
+        border-bottom: none;
+    }
+
+    .review {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    .terms {
+        padding-top: 0;
+    }
+}
